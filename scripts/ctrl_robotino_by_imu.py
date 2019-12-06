@@ -20,8 +20,8 @@ def callback(data):
         ), 'sxyz',
         )
 
-    forward = min(0.2,max(-0.2,tmp[1]))
-    sideways = -min(0.2,max(-0.2,tmp[0]))
+    forward = -min(0.2,max(-0.2,tmp[1]))
+    sideways = min(0.2,max(-0.2,tmp[0]))
     rotation = min(0.8,max(-0.8,tmp[2]))
 
     if abs(forward) < 0.2:
