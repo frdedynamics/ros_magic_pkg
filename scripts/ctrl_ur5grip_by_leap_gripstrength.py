@@ -20,7 +20,7 @@ def callback(data):
 
 def listener():
     """ function docstring, yo! """
-    rospy.init_node('magic_ctrl3', anonymous=True)
+    rospy.init_node('leap_to_grab_pub', anonymous=False)
     rospy.Subscriber("leap_motion/leap_filtered", Human, callback)
     rospy.spin()
 
