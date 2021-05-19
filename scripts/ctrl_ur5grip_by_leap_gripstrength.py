@@ -7,7 +7,7 @@ import rospy
 from leap_motion.msg import Human
 from std_msgs.msg import Float64
 
-cmd_grip_pub = rospy.Publisher('cmd_grip_pos', Float64, queue_size=1)
+cmd_grip_pub = rospy.Publisher('/cmd_grip_pos', Float64, queue_size=1)
 def callback(data):
     """ function docstring, yo! """
 
