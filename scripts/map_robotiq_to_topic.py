@@ -2,7 +2,7 @@
 """ module docstring, yo! """
 import sys
 import rospy
-from std_msgs.msg import Float64
+from std_msgs.msg import Int16
 from robotiq_urcap_control.msg import Robotiq2FGripper_robot_output as outputMsg
 
 cmd_grip_pub = rospy.Publisher('/Robotiq2FGripperRobotOutput', outputMsg, queue_size=1)
@@ -18,7 +18,7 @@ def callback(data):
 def listener():
     """ function docstring, yo! """
     rospy.init_node('grab_to_gripper_pub', anonymous=True)
-    rospy.Subscriber("/cmd_grip_pos", Float64, callback)
+    rospy.Subscriber("/cmd_grip_pos2", Int16, callback)
     rospy.spin()
 
 
