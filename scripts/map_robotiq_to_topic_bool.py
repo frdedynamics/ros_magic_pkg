@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" Subscribes a boolean /cmd_grip command and sends OPEN/CLOSE signal to Robotiq """
+""" Subscribes a boolean /cmd_grip_bool command and sends OPEN/CLOSE signal to Robotiq """
 import sys
 import rospy
 from std_msgs.msg import Bool
