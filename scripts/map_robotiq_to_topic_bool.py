@@ -14,8 +14,8 @@ def callback(data):
         msg.rPR = 255  ## This should be 0/255 I suppose but check tomorrow
     else:
         msg.rPR = 0
-    msg.rSP = 10
-    msg.rFR = 10
+    msg.rSP = 255
+    msg.rFR = 255
     cmd_grip_pub.publish(msg)
 
 def listener():
