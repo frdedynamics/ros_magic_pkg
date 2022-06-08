@@ -56,7 +56,8 @@ def cb_imu_ori(msg):
 
 if __name__ == '__main__':
 	rospy.init_node('myo_robotino_teleop', anonymous=False)
-	pub = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+	pub_cmd_vel = rospy.Publisher('/cmd_vel', Twist, queue_size=1)
+	pub_robotino_led = rospy.Publisher('/digitaloutput', DigitalReadings, queue_size=1)
 	sub_emg = rospy.Subscriber('/myo_raw/myo_emg', EmgArray, cb_emg)
 	sub_imu = rospy.Subscriber('/myo_raw/myo_imu', Imu, cb_imu_ori)
 	rate = rospy.Rate(10)
@@ -123,7 +124,8 @@ if __name__ == '__main__':
 			print("Emergency stop")
 			robotino_led_msg.values = [0,0,1,0,0,0,0,0]
 		print(vel_cmd)
-		pub.publish(vel_cmd)
+		pub_cmd_vel.publish(vel_cmd)
+		pub_robotino_led.publish(robotino_led_msg)
 		rate.sleep()
     
 
