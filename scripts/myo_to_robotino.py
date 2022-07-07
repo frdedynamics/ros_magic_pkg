@@ -97,23 +97,23 @@ if __name__ == '__main__':
 	## Only x for rotation z and y for linear.x
 	# add LED control also
 			if imu_ori_deg.x < -1:
-				vel_cmd.angular = Vector3(0.0,0.0,0.15)
+				vel_cmd.angular = Vector3(0.0,0.0,0.5)
 				vel_cmd.linear = Vector3(0.0,0.0,0.0)
 				robotino_led_msg.values = [1,0,0,0,0,0,0,0]
 			elif imu_ori_deg.x > 1:
-				vel_cmd.angular = Vector3(0.0,0.0,-0.15)
+				vel_cmd.angular = Vector3(0.0,0.0,-0.5)
 				vel_cmd.linear = Vector3(0.0,0.0,0.0)
 				robotino_led_msg.values = [1,0,0,0,0,0,0,0]
 
 			# since axis-y and axis-z are very coupled for elbow/arm motion, anyone passes the treshsol will create linear.x
 			elif ((imu_ori_deg.y < -1) or (imu_ori_deg.z < -1)):
 				vel_cmd.angular = Vector3(0.0,0.0,0.0)
-				vel_cmd.linear = Vector3(0.15,0.0,0.0)
+				vel_cmd.linear = Vector3(0.5,0.0,0.0)
 				robotino_led_msg.values = [1,0,0,0,0,0,0,0]
 
 			elif ((imu_ori_deg.y > 1) or (imu_ori_deg.z > 1)):
 				vel_cmd.angular = Vector3(0.0,0.0,0.0)
-				vel_cmd.linear = Vector3(-0.15,0.0,0.0)
+				vel_cmd.linear = Vector3(-0.5,0.0,0.0)
 				robotino_led_msg.values = [1,0,0,0,0,0,0,0]
 
 			else:
